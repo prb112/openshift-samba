@@ -90,7 +90,7 @@ TOKEN=$(oc whoami -t)
 
 # Log in to the registry
 echo "=== Logging in to the OpenShift registry ==="
-podman login -u $(oc whoami) -p $TOKEN $REGISTRY_HOST
+podman login -u $(oc whoami) -p $TOKEN $REGISTRY_HOST --tls-verify=false
 
 # Tag the image for the OpenShift registry
 REGISTRY_IMAGE="$REGISTRY_HOST/$PROJECT_NAME/$IMAGE_NAME:$IMAGE_TAG"
