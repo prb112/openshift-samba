@@ -52,12 +52,6 @@ RUN dnf -y update && \
     echo '   server max protocol = SMB3' >>$file && \
     echo '   server min protocol = SMB2_10' >>$file && \
     echo '' >>$file && \
-    echo '   # Time Machine' >>$file && \
-    echo '   fruit:delete_empty_adfiles = yes' >>$file && \
-    echo '   fruit:time machine = yes' >>$file && \
-    echo '   fruit:veto_appledouble = no' >>$file && \
-    echo '   fruit:wipe_intentionally_left_blank_rfork = yes' >>$file && \
-    echo '' >>$file && \
     rm -rf /tmp/*
 
 COPY samba.sh /usr/bin/
