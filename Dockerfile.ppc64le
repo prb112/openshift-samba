@@ -3,7 +3,7 @@ MAINTAINER David Personette <dperson@gmail.com>
 
 # Install samba
 RUN dnf -y update && \
-    dnf -y install bash samba shadow-utils tzdata && \
+    dnf -y install samba && \
     dnf clean all && \
     groupadd -r smb && \
     useradd -r -M -d /tmp -s /sbin/nologin -g smb -c 'Samba User' smbuser && \
