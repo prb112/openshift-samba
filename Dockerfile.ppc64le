@@ -1,5 +1,8 @@
 FROM quay.io/centos/centos:stream9
 
+# Credit to authors of Dockerfile
+# ref: Dockerfile
+
 # Install samba
 RUN dnf -y update && \
     dnf -y install samba && \
