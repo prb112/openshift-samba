@@ -3,10 +3,12 @@ MAINTAINER David Personette <dperson@gmail.com>
 
 # Install samba
 RUN dnf -y update && \
-    dnf -y install bash samba shadow-utils tini tzdata && \
+    dnf -y install bash samba shadow-utils tzdata && \
     dnf clean all && \
     groupadd -r smb && \
     useradd -r -M -d /tmp -s /sbin/nologin -g smb -c 'Samba User' smbuser && \
+    curl -o /sbin/tini https://github.com/krallin/tini/releases/download/v0.19.0/tini-ppc64le -L && \
+    chmod +x /sbin/tini && \
     file="/etc/samba/smb.conf" && \
     sed -i 's|^;* *\(log file = \).*|   \1/dev/stdout|' $file && \
     sed -i 's|^;* *\(load printers = \).*|   \1no|' $file && \
