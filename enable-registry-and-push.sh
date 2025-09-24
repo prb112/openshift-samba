@@ -99,7 +99,7 @@ podman tag $IMAGE_NAME:$IMAGE_TAG $REGISTRY_IMAGE
 
 # Push the image to the registry
 echo "=== Pushing image to OpenShift registry ==="
-podman push $REGISTRY_IMAGE
+podman push --tls-verify=false $REGISTRY_IMAGE
 
 # Verify the image exists in the registry
 echo "=== Verifying image in registry ==="
@@ -110,5 +110,3 @@ oc get imagestream $IMAGE_NAME -n $PROJECT_NAME || {
 
 echo "=== Image successfully pushed to OpenShift registry ==="
 echo "You can now use this image in your deployments with: $REGISTRY_IMAGE"
-
-# Made with Bob
