@@ -5,7 +5,7 @@ FROM quay.io/centos/centos:stream9
 
 # Install samba
 RUN dnf -y update && \
-    dnf -y install samba procps-ng && \
+    dnf -y install samba procps-ng samba-tools samba-client && \
     dnf clean all && \
     groupadd -r smb && \
     useradd -r -M -d /tmp -s /sbin/nologin -g smb -c 'Samba User' smbuser && \
