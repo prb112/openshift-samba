@@ -17,7 +17,7 @@ RUN dnf -y update && \
     rm -rf /tmp/*
 
 COPY samba.sh /usr/bin/
-COPY samba.conf /etc/samba/
+COPY smb.conf /etc/samba/
 
 EXPOSE 137/udp 138/udp 139 445
 
