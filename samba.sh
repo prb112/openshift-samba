@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Creating Samba users"
-adduser -s /sbin/nologin -h /home/samba -H -D USERNAME
+adduser --no-create-home --no-user-group USERNAME -p PASSWORD
 yes PASSWORD | smbpasswd -a USERNAME
 
 echo "Starting Samba 4"
