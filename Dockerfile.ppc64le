@@ -13,7 +13,7 @@ RUN dnf -y update && \
     chmod +x /sbin/tini && \
     mkdir -p /export/smbshare && \
     chmod -R 777 /export/smbshare && \
-    chown -R nobody:nobody /export/smbshare && \
+    chown -R nobody:nobody /export/ && \
     rm -rf /tmp/*
 
 COPY samba.sh /usr/bin/
